@@ -7,7 +7,7 @@ Decrypt [this text](/decrypt.bin)
 Flag is the key used to encrypt it.
 
 # Решение:
-Используя [xortool](https://github.com/hellman/xortool) я поопробовал проанализировать файл: 
+Используя [xortool](https://github.com/hellman/xortool) я попробовал проанализировать файл: 
 ```Bash
 xortool decrypt.bin
 ```
@@ -15,7 +15,7 @@ xortool decrypt.bin
 
 Видим что xortool считает что длинна ключа - 8, но говорит что может быть 4\*n. Попробуем расшифровать:
 ```Bash
-xortool decrypt.bin
+xortool -l 32 -c ' ' decrypt.bin
 ```
 ![](./2.png)
 
@@ -68,4 +68,5 @@ for (int i = 0; i < 623; ++i)
 ![](./5.png)
 
 > 89723f91f3ee9376f0e146cfd1e14f76
+
 Т.к. найти нам надо было ключ - сдаём его и получаем 200 поинтов :)
