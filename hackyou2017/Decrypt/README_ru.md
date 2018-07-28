@@ -2,38 +2,37 @@
 
 **Author: Omar Ganiev (beched)**
 
-Decrypt [this text](./decrypt.bin)
+Decrypt [this text](/decrypt.bin)
 
 Flag is the key used to encrypt it.
 
-*[Русская версия](./README_ru.md)/*
-
 # Решение:
-Using [xortool](https://github.com/hellman/xortool) i have tried to analyse the file: 
+Используя [xortool](https://github.com/hellman/xortool) я попробовал проанализировать файл: 
 ```Bash
 xortool decrypt.bin
 ```
 ![](./1.png)
 
-We see that xortool is telling us that key length is 8, but also suggests that it can be 4\*n. Let's try to decrypt:
+Видим что xortool считает что длинна ключа - 8, но говорит что может быть 4\*n. Попробуем расшифровать:
 ```Bash
 xortool -l 32 -c ' ' decrypt.bin
 ```
 ![](./2.png)
 
-Checking results:
+Смотрим что он нарасшифровывал:
 ```Bash
 cat xortool_out/*
 ```
 ![](./3.png)
 
-Inside that pile of under-deciphered text we can see something familiar:
+Среди кучи недорасшифрованного текста узнаётся что-то знакомое:
 ```Bash
 xortool --help
 ```
 ![](./4.png)
 
-And now we have plaintext. Since the cipher is XOR, we can restore the key by XORing plaintext with ciphertext. So i wrote this [tiny programm](./decode.c) in C:
+Таким образом у нас в руках появился plaintext от зашифрованного текста. Так как используется XOR, можно узнать ключ выполнив эту операцию между зашифрованным файлом и plaintext.
+Поэтому я написал [небольшую программку](/decode.c) на C:
 ```C 
 #include <stdio.h>
 #include <stdlib.h>
@@ -65,9 +64,9 @@ for (int i = 0; i < 623; ++i)
 }
 ```
 
-When we run it, we see deciphered text:
+Запустив её видим ключ и расшифрованный текст:
 ![](./5.png)
 
-> 89723f91f3ee9376f0e146cfd1e14f76  
+> 89723f91f3ee9376f0e146cfd1e14f76
 
-We needed to find key, so let's submit it and get our 200 points :)
+Т.к. найти нам надо было ключ - сдаём его и получаем 200 поинтов :)
