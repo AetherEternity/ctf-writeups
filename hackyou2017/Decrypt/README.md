@@ -6,9 +6,9 @@ Decrypt [this text](./decrypt.bin)
 
 Flag is the key used to encrypt it.
 
-*[Русская версия](./README_ru.md)/*
+*[Русская версия](./README_ru.md)*
 
-# Решение:
+# Solve:
 Using [xortool](https://github.com/hellman/xortool) i have tried to analyse the file: 
 ```Bash
 xortool decrypt.bin
@@ -65,7 +65,7 @@ for (int i = 0; i < 623; ++i)
 }
 ```
 
-When we run it, we see deciphered text:
+When we run it, we see deciphered text:  
 ![](./5.png)
 
 > 89723f91f3ee9376f0e146cfd1e14f76  

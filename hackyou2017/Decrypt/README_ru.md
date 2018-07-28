@@ -2,7 +2,7 @@
 
 **Author: Omar Ganiev (beched)**
 
-Decrypt [this text](/decrypt.bin)
+Decrypt [this text](./decrypt.bin)
 
 Flag is the key used to encrypt it.
 
@@ -32,7 +32,7 @@ xortool --help
 ![](./4.png)
 
 Таким образом у нас в руках появился plaintext от зашифрованного текста. Так как используется XOR, можно узнать ключ выполнив эту операцию между зашифрованным файлом и plaintext.
-Поэтому я написал [небольшую программку](/decode.c) на C:
+Поэтому я написал [небольшую программку](./decode.c) на C:
 ```C 
 #include <stdio.h>
 #include <stdlib.h>
