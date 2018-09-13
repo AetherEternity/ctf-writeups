@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-filesize=0x6d8c9+1
-pcapInitSpacing=0x2b+1
-pcapDataSpacing=0x13+1
+filesize=0x6d8c9+1 # size of sbconly.pcap
+pcapInitSpacing=0x2b+1 # to skip pcap headers
+pcapDataSpacing=0x13+1 # to skip frame headers in pcap
 frameHeader=0x15 
 packetHeader=0x4
 packetSize=0x4e+1
